@@ -5,13 +5,15 @@
 #include "Rendering/RenderCore.h"
 #include "Rendering/Init.h"
 #include "WorldGen/WorldGen.h"
+#include "UI/UICore.h"
+#include "UI/Buttons.h"
 #include <vector>
 #include <map>
-#include<cmath>
-#include<compare>
-#include<algorithm>
+#include <cmath>
+#include <compare>
+#include <algorithm>
+
 //compile commands
-//cd C:/Users/Anwender/Desktop/coding/2D_Game/manual/2D_Game
 //gcc -o 2D_Game.exe main.cpp -Iinclude -Llib -lraylib -lgdi32 -lwinmm
 
 
@@ -32,8 +34,9 @@ int main() {
 
         frameCount++;
 
-        if(frameCount % 5 == 0) handleInput(player);
+        if(frameCount % 10 == 0) handleInput(player);
         updateCamera(player);
+
 
         BeginDrawing();
 
@@ -43,13 +46,12 @@ int main() {
 
                 renderWorld(player);
 
-                DrawRectangle(0, -100, 100, 100, RED);
-
                 rendering(player);
 
             EndMode2D();
 
-            
+            //DrawRectangle(900, 450, 400, 50, PURPLE);
+            checkIfButtonClicked(resumeButton);
 
         DrawFPS(0, 0);
 

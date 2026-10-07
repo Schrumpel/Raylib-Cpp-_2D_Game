@@ -28,10 +28,8 @@ void checkForChunk(Vector2 chunkPos){
     //searches the World map for the chunk
     auto it = World.find(chunkPos);
 
-    if (it != World.end()) {
-          std::cout << "Chunk found" << chunkPos.x << " " << chunkPos.y << "\n";
-    } else {
-        generateChunk(chunkPos);
+    if (it == World.end()) {
+          generateChunk(chunkPos);
     }
 
 }
